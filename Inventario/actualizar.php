@@ -20,7 +20,7 @@
             <div class="mb-4 d-flex justify-content-start align-items-center">
                 <h4>  <i class="bi bi-chat-left-quote"></i> &nbsp; Ingrese la informacion</h4>
             </div>
-            <div class="mb-1">t 
+            <div class="mb-1">
                 <form action="update.php" method="POST">
                     <div class="mb-4 d-flex justify-content-between"></div>
                     <div class="mb-4">
