@@ -1,13 +1,22 @@
 <?php
     include('conexion.php');
+    
     $id = $_REQUEST['id'];
-    $sel = $con->query("SELECT * FROM alumnos WHERE id =".$id);
+    $sel = $con->query("SELECT * FROM inventario WHERE id =".$id);
+
+    $producto = $fila['producto'];
+    $stock = $fila['stock'];
+    $precio = $fila['precio'];
 
     if($fila=$sel->fetch_assoc()){
-gi
+        $up=$con->query("UPDATE inventario set
+                producto='$producto',stock='$stock',precio='$precio'
+                where id = '$id'");
+                if($up){
+                    header ('location:actualizar.php');
+                }
     }
 ?>
-
 
 <html>
     <head>
@@ -29,18 +38,18 @@ gi
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Nombre:</label>
-                        <input type="text" class="form-control" name="nombre" value="<?php echo $fila['Nombre'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Producto:</label>
+                        <input type="text" class="form-control" name="producto" value="<?php echo $fila['producto'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Apellido paterno:</label>
-                        <input type="text" class="form-control" name="paterno" value="<?php echo $fila['Paterno'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Stock:</label>
+                        <input type="text" class="form-control" name="stock" value="<?php echo $fila['stock'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Apellido materno:</label>
-                        <input type="text" class="form-control" name="materno" value="<?php echo $fila['Materno'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Precio:</label>
+                        <input type="text" class="form-control" name="precio" value="<?php echo $fila['precio'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-2">
