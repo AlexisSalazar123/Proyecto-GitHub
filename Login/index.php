@@ -17,7 +17,7 @@
                 $contraseña_ingresada = $_POST['contraseña'];
 
                 if ($contraseña_bd == $contraseña_ingresada) {
-                    header("Location: inicio.php"); 
+                    header("Location: index.php"); 
                 } else {
                     $mensajeError = "La contraseña o el usuario son incorrectos.";
                 }
