@@ -1,20 +1,10 @@
-<?php
+<?php 
     include('conexion.php');
-    
-    $id = $_REQUEST['id'];
-    $sel = $con->query("SELECT * FROM inventario WHERE id =".$id);
 
-    $producto = $fila['producto'];
-    $stock = $fila['stock'];
-    $precio = $fila['precio'];
+    $id= $_REQUEST['id'];
+    $sel=$con -> query("SELECT * FROM inventario WHERE id=".$id);
 
-    if($fila=$sel->fetch_assoc()){
-        $up=$con->query("UPDATE inventario set
-                producto='$producto',stock='$stock',precio='$precio'
-                where id = '$id'");
-                if($up){
-                    header ('location:actualizar.php');
-                }
+    if($fila = $sel->fetch_assoc()){
     }
 ?>
 
