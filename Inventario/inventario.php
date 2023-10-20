@@ -16,9 +16,11 @@
         <thead>
             <tr>
                 <th class="text-center" scope="col">Id</th>
-                <th class="text-center" scope="col">Producto</th>
-                <th class="text-center" scope="col">Stock</th>
-                <th class="text-center" scope="col">Precio</th>
+                <th class="text-center" scope="col">Ingrediente</th>
+                <th class="text-center" scope="col">Cantidad</th>
+                <th class="text-center" scope="col">Unidad Medida</th>
+                <th class="text-center" scope="col">Cantidad minima</th>
+                <th class="text-center" scope="col">Proveedor</th>
                 <th class="text-center" scope="col">Editar</th>
                 <th class="text-center" scope="col">Borrar</th>
             </tr>
@@ -30,9 +32,15 @@
         <tbody>
             <tr>
                 <td class="text-center"><?php  echo $fila['id']?></td>
-                <td class="text-center"><?php  echo $fila['producto']?></td>
-                <td class="text-center"><?php  echo $fila['stock']?></td>
-                <td class="text-center"><?php  echo $fila['precio']?></td>
+                <td class="text-center"><?php  echo $fila['nombre_ingrediente']?></td>
+                <td class="text-center"><?php  echo $fila['cantidad']?></td>
+                <!-- se debe hacer inner join -->
+                <td class="text-center"><?php  echo $fila['unidad_medida']?></td>
+                <!--  -->
+                <td class="text-center"><?php  echo $fila['cantidad_minima']?></td>
+                <!-- se debe hacer inner join -->
+                <td class="text-center"><?php  echo $fila['proveedor']?></td>
+                <!--  -->
                 <td class="text-center"><a href="actualizar.php?id=<?php echo $fila['id'];?>" class="btn btn-warning">Actualizar</a></td>
                 <td class="text-center"><a href="borrar.php?id=<?php echo $fila['id'];?>" class="btn btn-danger">Borrar</a></td>
             </tr>
