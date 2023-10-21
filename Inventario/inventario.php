@@ -25,7 +25,8 @@
                 <th class="text-center" scope="col">Borrar</th>
             </tr>
             <?php
-            $sel = $con->query("SELECT * FROM inventario i INNER JOIN tbl_unidad_medida u");
+            $sel = $con->query("SELECT * FROM inventario i INNER JOIN tbl_unidad_medida u 
+                                ON i.unidad_medida = u.id");
             while($fila=$sel->fetch_assoc()){
             ?>
         </thead>
@@ -35,7 +36,7 @@
                 <td class="text-center"><?php  echo $fila['nombre_ingrediente']?></td>
                 <td class="text-center"><?php  echo $fila['cantidad']?></td>
                 <!-- se debe hacer inner join -->
-                <td class="text-center"><?php  echo $fila['unidad_medida']?></td>
+                <td class="text-center"><?php  echo $fila['nombre']?></td>
                 <!--  -->
                 <td class="text-center"><?php  echo $fila['cantidad_minima']?></td>
                 <!-- se debe hacer inner join -->
