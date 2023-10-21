@@ -39,10 +39,9 @@
                     </div> 
                     <div class="mb-4 form-group">
                         <label for="correo"><i class="bi bi-envelope-fill"></i> Unidad Medida:</label>
-                        <!-- <input type="text" class="form-control" name="unidad_medida" value="<?php echo $fila['unidad_medida'] ?>"> -->
-                        <select class="form-control" name="frutas">
+                        <select class="form-control" name="unidad_medida">
                             <?php 
-                            $sel2 = $con->query("SELECT * FROM tbl_unidad_medida");
+                            $sel2 = $con2->query("SELECT * FROM tbl_unidad_medida");
                             while($fila2=$sel2->fetch_assoc()){
                             ?>
                             <option value="<?php echo $fila2["id"]; ?>"><?php echo $fila2["nombre"]; ?></option>
