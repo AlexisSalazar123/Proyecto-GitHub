@@ -26,13 +26,11 @@
                 <th class="text-center" scope="col">Borrar</th>
             </tr>
             <?php
-            $sel = $con->query("SELECT * FROM inventario i INNER JOIN tbl_unidad_medida u 
-                                ON i.unidad_medida = u.id");
-            // $sel2 = $con->query("SELECT * FROM inventario i INNER JOIN proveedor p 
-            //                     ON i.proveedor = p.id");
-            $sel2 = $con->query("SELECT * FROM proveedor");
+            $sel = $con->query("SELECT * FROM inventario i 
+                                INNER JOIN tbl_unidad_medida u ON i.unidad_medida = u.id
+                                INNER JOIN proveedor p ON i.proveedor = p.id");
             while($fila=$sel->fetch_assoc()){
-                while($fila2=$sel2->fetch_assoc()){
+                
             ?>
         </thead>
         <tbody>
@@ -40,18 +38,14 @@
                 <td class="text-center"><?php  echo $fila['id']?></td>
                 <td class="text-center"><?php  echo $fila['nombre_ingrediente']?></td>
                 <td class="text-center"><?php  echo $fila['cantidad']?></td>
-                <!-- se debe hacer inner join -->
                 <td class="text-center"><?php  echo $fila['nombre']?></td>
-                <!--  -->
                 <td class="text-center"><?php  echo $fila['cantidad_minima']?></td>
-                <!-- se debe hacer inner join -->
-                <td class="text-center"><?php  echo $fila2['nombre']?></td>
-                <!--  -->
+                <td class="text-center"><?php  echo $fila['nombre_proveedor']?></td>
                 <td class="text-center"><a href="actualizar.php?id=<?php echo $fila['id'];?>" class="btn btn-warning">Actualizar</a></td>
                 <td class="text-center"><a href="borrar.php?id=<?php echo $fila['id'];?>" class="btn btn-danger">Borrar</a></td>
             </tr>
             <?php
-                }}
+                }
             ?>
         </tbody>
     </table>
