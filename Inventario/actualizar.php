@@ -28,18 +28,28 @@
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Producto:</label>
-                        <input type="text" class="form-control" name="producto" value="<?php echo $fila['producto'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Ingrediente:</label>
+                        <input type="text" class="form-control" name="nombre_ingrediente" value="<?php echo $fila['nombre_ingrediente'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Stock:</label>
-                        <input type="text" class="form-control" name="stock" value="<?php echo $fila['stock'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Cantidad:</label>
+                        <input type="text" class="form-control" name="cantidad" value="<?php echo $fila['cantidad'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Precio:</label>
-                        <input type="text" class="form-control" name="precio" value="<?php echo $fila['precio'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Unidad Medida:</label>
+                        <input type="text" class="form-control" name="unidad_medida" value="<?php echo $fila['unidad_medida'] ?>">
+                        <div class="correo text-danger"></div>
+                    </div> 
+                    <div class="mb-4">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Cantidad Minima:</label>
+                        <input type="text" class="form-control" name="cantidad_minima" value="<?php echo $fila['cantidad_minima'] ?>">
+                        <div class="correo text-danger"></div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Proveedor:</label>
+                        <input type="text" class="form-control" name="proveedor" value="<?php echo $fila['proveedor'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-2">
