@@ -25,7 +25,7 @@
                 <th class="text-center" scope="col">Borrar</th>
             </tr>
             <?php
-            $sel = $con->query("SELECT * FROM inventario");
+            $sel = $con->query("SELECT * FROM inventario i INNER JOIN tbl_unidad_medida u");
             while($fila=$sel->fetch_assoc()){
             ?>
         </thead>
