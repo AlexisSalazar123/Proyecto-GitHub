@@ -37,9 +37,19 @@
                         <input type="text" class="form-control" name="cantidad" value="<?php echo $fila['cantidad'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
-                    <div class="mb-4">
+                    <div class="mb-4 form-group">
                         <label for="correo"><i class="bi bi-envelope-fill"></i> Unidad Medida:</label>
-                        <input type="text" class="form-control" name="unidad_medida" value="<?php echo $fila['unidad_medida'] ?>">
+                        <!-- <input type="text" class="form-control" name="unidad_medida" value="<?php echo $fila['unidad_medida'] ?>"> -->
+                        <select class="form-control" name="frutas">
+                            <?php 
+                            $sel2 = $con->query("SELECT * FROM tbl_unidad_medida");
+                            while($fila2=$sel2->fetch_assoc()){
+                            ?>
+                            <option value="<?php echo $fila2["id"]; ?>"><?php echo $fila2["nombre"]; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
