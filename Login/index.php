@@ -79,7 +79,7 @@
                     echo '<div class="alert alert-danger">' . $mensajeError . '</div>';
                 }
                 ?>
-    </div>
+            </div>
            </form>
 
    </div>
