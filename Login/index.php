@@ -3,7 +3,7 @@
 
     include('../conexion.php');
 
-    $mensajeError = ""; // Inicialmente, no hay error.
+    $mensajeError = ""; 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $_POST['usuario'];
