@@ -27,8 +27,8 @@
             </tr>
             <?php
             $sel = $con->query("SELECT * FROM inventario i 
-                                INNER JOIN tbl_unidad_medida u ON i.unidad_medida = u.id
-                                INNER JOIN proveedor p ON i.proveedor = p.id");
+                                INNER JOIN tbl_unidad_medida u ON i.unidad_medida = u.id_unidad
+                                INNER JOIN proveedor p ON i.proveedor = p.id_proveedor");
             while($fila=$sel->fetch_assoc()){
                 
             ?>

@@ -44,7 +44,7 @@
                             $sel2 = $con2->query("SELECT * FROM tbl_unidad_medida");
                             while($fila2=$sel2->fetch_assoc()){
                             ?>
-                            <option value="<?php echo $fila2["id"]; ?>"><?php echo $fila2["nombre"]; ?></option>
+                            <option value="<?php echo $fila2["id_unidad"]; ?>"><?php echo $fila2["nombre"]; ?></option>
                             <?php 
                                 }
                             ?>
