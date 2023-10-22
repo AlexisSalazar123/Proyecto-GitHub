@@ -3,11 +3,11 @@
 
     include('../conexion.php');
 
-    $mensajeError = ""; 
+    $mensajeError = ""; // Inicialmente, no hay error.
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $_POST['usuario'];
-        $sel = $con->query("SELECT contraseña FROM usuarios where usuario='$usuario'");
+        $sel = $con->query("SELECT contraseña FROM usuario where usuario='$usuario'");
 
         if($sel) {
             if($sel->num_rows > 0) {
@@ -37,13 +37,12 @@
     <link rel="stylesheet" href="Css\estilos.css">
 
     <script>
-        // Esta función ocultará el mensaje de error después de 10 segundos
         setTimeout(function() {
             var errorElement = document.querySelector(".error-message");
             if (errorElement) {
                 errorElement.style.display = "none";
             }
-        }, 4000); // 10000 milisegundos = 10 segundos
+        }, 4000);
     </script>
 
 </head>
