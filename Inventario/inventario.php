@@ -17,19 +17,54 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form class="modal-content" action="guardar.php" method="POST">
+        <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar ingrediente</h1>
+                <h1 class="modal-title fs-5" id="">Agregar ingrediente</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form action="guardar.php" method="POST">
+                    <div class="mb-4">
+                        <label for="ingrediente"><i class="bi bi-envelope-fill"></i> Ingrediente:</label>
+                        <input type="text" class="form-control" name="nombre_ingrediente">
+                        <div class="text-danger"></div>
+                    </div> 
+                    <div class="mb-4">
+                        <label for="cantidad"><i class="bi bi-envelope-fill"></i> Cantidad:</label>
+                        <input type="text" class="form-control" name="cantidad">
+                        <div class="text-danger"></div>
+                    </div> 
+                    <div class="mb-4 form-group">
+                        <label for="unidadMedida"><i class="bi bi-envelope-fill"></i> Unidad Medida:</label>
+                        <select class="form-control" name="unidad_medida">
+                            <?php 
+                            $sel2 = $con2->query("SELECT * FROM tbl_unidad_medida");
+                            while($fila2=$sel2->fetch_assoc()){
+                            ?>
+                            <option value="<?php echo $fila2["id_unidad"]; ?>"><?php echo $fila2["nombre"]; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
+                        <div class="text-danger"></div>
+                    </div> 
+                    <div class="mb-4">
+                        <label for="cantidadMinima"><i class="bi bi-envelope-fill"></i> Cantidad Minima:</label>
+                        <input type="text" class="form-control" name="cantidad_minima">
+                        <div class="text-danger"></div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Proveedor:</label>
+                        <input type="text" class="form-control" name="proveedor">
+                        <div class="text-danger"></div>
+                    </div> 
+                    <div class="">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-warning">Guardar</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-warning">Guardar</button>
-            </div>
-        </form>
+        </div>
     </div>
     </div>
 
