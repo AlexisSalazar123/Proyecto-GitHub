@@ -41,7 +41,7 @@
                             $sel2 = $con2->query("SELECT * FROM tbl_unidad_medida");
                             while($fila2=$sel2->fetch_assoc()){
                             ?>
-                            <option value="<?php echo $fila2["id_unidad"]; ?>"><?php echo $fila2["nombre"]; ?></option>
+                            <option value="<?php echo $fila2["id_unidad_medida"]; ?>"><?php echo $fila2["nombre"]; ?></option>
                             <?php 
                                 }
                             ?>
@@ -60,7 +60,7 @@
                             $sel3 = $con3->query("SELECT * FROM proveedor");
                             while($fila3=$sel3->fetch_assoc()){
                             ?>
-                            <option value="<?php echo $fila3["id_proveedor"]; ?>"><?php echo $fila3["nombre_proveedor"]; ?></option>
+                            <option value="<?php echo $fila3["id_proveedor"]; ?>"><?php echo $fila3["nombre"]; ?></option>
                             <?php 
                                 }
                             ?>
@@ -92,22 +92,22 @@
                 </tr>
                 <?php
                 $sel = $con->query("SELECT * FROM inventario i 
-                                    INNER JOIN tbl_unidad_medida u ON i.unidad_medida = u.id_unidad
-                                    INNER JOIN proveedor p ON i.proveedor = p.id_proveedor");
+                                    INNER JOIN tbl_unidad_medida u ON i.unidad_medida = u.id_unidad_medida
+                                    INNER JOIN proveedor p ON i.nombre_proveedor = p.id_proveedor");
                 while($fila=$sel->fetch_assoc()){
                     
                 ?>
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-center"><?php  echo $fila['id']?></td>
+                    <td class="text-center"><?php  echo $fila['id_inventario']?></td>
                     <td class="text-center"><?php  echo $fila['nombre_ingrediente']?></td>
                     <td class="text-center"><?php  echo $fila['cantidad']?></td>
                     <td class="text-center"><?php  echo $fila['nombre']?></td>
                     <td class="text-center"><?php  echo $fila['cantidad_minima']?></td>
-                    <td class="text-center"><?php  echo $fila['nombre_proveedor']?></td>
-                    <td class="text-center"><a href="actualizar.php?id=<?php echo $fila['id'];?>" class="btn btn-warning">Actualizar</a></td>
-                    <td class="text-center"><a href="borrar.php?id=<?php echo $fila['id'];?>" class="btn btn-danger">Borrar</a></td>
+                    <td class="text-center"><?php  echo $fila['nombreP']?></td>
+                    <td class="text-center"><a href="actualizar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-warning">Actualizar</a></td>
+                    <td class="text-center"><a href="borrar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-danger">Borrar</a></td>
                 </tr>
                 <?php
                     }

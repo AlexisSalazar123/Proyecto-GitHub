@@ -1,8 +1,8 @@
 <?php 
     include('conexion.php');
 
-    $id= $_REQUEST['id'];
-    $sel=$con -> query("SELECT * FROM inventario WHERE id=".$id);
+    $id_inventario=$_REQUEST['id_inventario'];
+    $sel=$con -> query("SELECT * FROM inventario WHERE id_inventario=".$id_inventario);
 
     if($fila = $sel->fetch_assoc()){
     }
@@ -24,7 +24,7 @@
                 <form action="update.php" method="POST">
                     <div class="mb-4 d-flex justify-content-between"></div>
                     <div class="mb-4">
-                        <input type="hidden" class="form-control" name="id" value="<?php echo $fila['id']?>" required>
+                        <input type="hidden" class="form-control" name="id" value="<?php echo $fila['id_inventario']?>" required>
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
@@ -44,7 +44,7 @@
                             $sel2 = $con2->query("SELECT * FROM tbl_unidad_medida");
                             while($fila2=$sel2->fetch_assoc()){
                             ?>
-                            <option value="<?php echo $fila2["id_unidad"]; ?>"><?php echo $fila2["nombre"]; ?></option>
+                            <option value="<?php echo $fila2["id_unidad_medida"]; ?>"><?php echo $fila2["nombre"]; ?></option>
                             <?php 
                                 }
                             ?>
@@ -56,9 +56,18 @@
                         <input type="text" class="form-control" name="cantidad_minima" value="<?php echo $fila['cantidad_minima'] ?>">
                         <div class="correo text-danger"></div>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 form-group">
                         <label for="correo"><i class="bi bi-envelope-fill"></i> Proveedor:</label>
-                        <input type="text" class="form-control" name="proveedor" value="<?php echo $fila['proveedor'] ?>">
+                        <select class="form-control" name="proveedor">
+                            <?php 
+                            $sel3 = $con3->query("SELECT * FROM proveedor");
+                            while($fila3=$sel3->fetch_assoc()){
+                            ?>
+                            <option value="<?php echo $fila3["id_proveedor"]; ?>"><?php echo $fila3["nombreP"]; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-2">

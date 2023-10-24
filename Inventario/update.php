@@ -10,7 +10,7 @@
 
     $up=$con->query("UPDATE inventario set
                     nombre_ingrediente='$nombre_ingrediente', cantidad='$cantidad', unidad_medida='$unidad_medida', 
-                    cantidad_minima='$cantidad_minima', proveedor='$proveedor' WHERE id='$id' ");
+                    cantidad_minima='$cantidad_minima', nombre_proveedor='$proveedor' WHERE id_inventario='$id' ");
 
     if($up){
         header('location:inventario.php');

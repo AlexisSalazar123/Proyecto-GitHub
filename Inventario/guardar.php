@@ -7,7 +7,7 @@
     $cantidad_minima=$_POST['cantidad_minima'];
     $proveedor=$_POST['proveedor'];
 
-    $ins = $con->query("INSERT INTO inventario(nombre_ingrediente,cantidad,unidad_medida,cantidad_minima,proveedor) values
+    $ins = $con->query("INSERT INTO inventario(nombre_ingrediente,cantidad,unidad_medida,cantidad_minima,nombre_proveedor) values
     ('$nombre_ingrediente','$cantidad','$unidad_medida','$cantidad_minima','$proveedor')");
 
     if($ins){
