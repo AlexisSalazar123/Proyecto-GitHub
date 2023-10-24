@@ -13,9 +13,9 @@
 </head>
 <body>
     <div class="py-1"></div>
-    <button type="button" class="btn-mio btn btn-warning ms-1 " data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar ingrediente</button>
+    <button type="button" class="btn-mio btn btn-warning ms-1 " data-bs-toggle="modal" data-bs-target="#modal">Agregar ingrediente</button>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -53,9 +53,18 @@
                         <input type="text" class="form-control" name="cantidad_minima">
                         <div class="text-danger"></div>
                     </div>
-                    <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Proveedor:</label>
-                        <input type="text" class="form-control" name="proveedor">
+                    <div class="mb-4 form-group">
+                        <label for="unidadMedida"><i class="bi bi-envelope-fill"></i> Proveedor:</label>
+                        <select class="form-control" name="proveedor">
+                            <?php 
+                            $sel3 = $con3->query("SELECT * FROM proveedor");
+                            while($fila3=$sel3->fetch_assoc()){
+                            ?>
+                            <option value="<?php echo $fila3["id_proveedor"]; ?>"><?php echo $fila3["nombre_proveedor"]; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
                         <div class="text-danger"></div>
                     </div> 
                     <div class="">
