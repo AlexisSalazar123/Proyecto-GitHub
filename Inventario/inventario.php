@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="py-1"></div>
-    <button type="button" class="btn-mio btn btn-warning ms-1 " data-bs-toggle="modal" data-bs-target="#modal">Agregar ingrediente</button>
+    <button type="button" class="btn-mio btn btn-warning ms-1 " data-bs-toggle="modal" data-bs-target="#modal"><img src="plus-square-solid-24.png" alt="agregar">Agregar ingrediente</button>
 
     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -107,7 +107,7 @@
                     <td class="text-center"><?php  echo $fila['nombreP']?></td>
                     <td class="text-center">
                         <a href="actualizar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-warning"><img src="edit-alt-regular-24 (1).png" alt="editar">Editar</a>
-                        <a href="borrar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-danger"><img src="x-square-solid-24.png" alt="borrar">Borrar</a>
+                        <a href="borrar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-danger"><img  class="" src="x-regular-24.png" alt="borrar">Borrar</a>
                     </td>
                 </tr>
                 <?php
