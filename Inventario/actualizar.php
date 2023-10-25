@@ -1,8 +1,8 @@
 <?php 
     include('conexion.php');
 
-    $id= $_REQUEST['id'];
-    $sel=$con -> query("SELECT * FROM inventario WHERE id=".$id);
+    $id_inventario=$_REQUEST['id_inventario'];
+    $sel=$con -> query("SELECT * FROM inventario WHERE id_inventario=".$id_inventario);
 
     if($fila = $sel->fetch_assoc()){
     }
@@ -24,22 +24,50 @@
                 <form action="update.php" method="POST">
                     <div class="mb-4 d-flex justify-content-between"></div>
                     <div class="mb-4">
-                        <input type="hidden" class="form-control" name="id" value="<?php echo $fila['id']?>" required>
+                        <input type="hidden" class="form-control" name="id" value="<?php echo $fila['id_inventario']?>" required>
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Producto:</label>
-                        <input type="text" class="form-control" name="producto" value="<?php echo $fila['producto'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Ingrediente:</label>
+                        <input type="text" class="form-control" name="nombre_ingrediente" value="<?php echo $fila['nombre_ingrediente'] ?>">
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Stock:</label>
-                        <input type="text" class="form-control" name="stock" value="<?php echo $fila['stock'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Cantidad:</label>
+                        <input type="text" class="form-control" name="cantidad" value="<?php echo $fila['cantidad'] ?>">
+                        <div class="correo text-danger"></div>
+                    </div> 
+                    <div class="mb-4 form-group">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Unidad Medida:</label>
+                        <select class="form-control" name="unidad_medida">
+                            <?php 
+                            $sel2 = $con2->query("SELECT * FROM tbl_unidad_medida");
+                            while($fila2=$sel2->fetch_assoc()){
+                            ?>
+                            <option value="<?php echo $fila2["id_unidad_medida"]; ?>"><?php echo $fila2["nombre"]; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-4">
-                        <label for="correo"><i class="bi bi-envelope-fill"></i> Precio:</label>
-                        <input type="text" class="form-control" name="precio" value="<?php echo $fila['precio'] ?>">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Cantidad Minima:</label>
+                        <input type="text" class="form-control" name="cantidad_minima" value="<?php echo $fila['cantidad_minima'] ?>">
+                        <div class="correo text-danger"></div>
+                    </div>
+                    <div class="mb-4 form-group">
+                        <label for="correo"><i class="bi bi-envelope-fill"></i> Proveedor:</label>
+                        <select class="form-control" name="proveedor">
+                            <?php 
+                            $sel3 = $con3->query("SELECT * FROM proveedor");
+                            while($fila3=$sel3->fetch_assoc()){
+                            ?>
+                            <option value="<?php echo $fila3["id_proveedor"]; ?>"><?php echo $fila3["nombreP"]; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
                         <div class="correo text-danger"></div>
                     </div> 
                     <div class="mb-2">

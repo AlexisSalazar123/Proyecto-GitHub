@@ -2,13 +2,15 @@
     include('conexion.php');
 
     $id=$_POST['id'];
-    $producto=$_POST['producto'];
-    $stock=$_POST['stock'];
-    $precio=$_POST['precio'];
+    $nombre_ingrediente=$_POST['nombre_ingrediente'];
+    $cantidad=$_POST['cantidad'];
+    $unidad_medida=$_POST['unidad_medida'];
+    $cantidad_minima=$_POST['cantidad_minima'];
+    $proveedor=$_POST['proveedor'];
 
     $up=$con->query("UPDATE inventario set
-                    producto='$producto', stock='$stock', precio='$precio'
-                    WHERE id='$id' ");
+                    nombre_ingrediente='$nombre_ingrediente', cantidad='$cantidad', unidad_medida='$unidad_medida', 
+                    cantidad_minima='$cantidad_minima', nombre_proveedor='$proveedor' WHERE id_inventario='$id' ");
 
     if($up){
         header('location:inventario.php');
