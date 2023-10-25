@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="py-1"></div>
-    <button type="button" class="btn-mio btn btn-warning ms-1 " data-bs-toggle="modal" data-bs-target="#modal"><img src="plus-square-solid-24.png" alt="agregar">Agregar ingrediente</button>
+    <button type="button" class="btn-mio btn btn-warning ms-1 " data-bs-toggle="modal" data-bs-target="#modal">Agregar ingrediente</button>
 
     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
