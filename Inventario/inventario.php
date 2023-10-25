@@ -87,8 +87,7 @@
                     <th class="text-center" scope="col">Unidad Medida</th>
                     <th class="text-center" scope="col">Cantidad minima</th>
                     <th class="text-center" scope="col">Proveedor</th>
-                    <th class="text-center" scope="col">Editar</th>
-                    <th class="text-center" scope="col">Borrar</th>
+                    <th class="text-center" scope="col">Acciones</th>
                 </tr>
                 <?php
                 $sel = $con->query("SELECT * FROM inventario i 
@@ -106,8 +105,10 @@
                     <td class="text-center"><?php  echo $fila['nombre']?></td>
                     <td class="text-center"><?php  echo $fila['cantidad_minima']?></td>
                     <td class="text-center"><?php  echo $fila['nombreP']?></td>
-                    <td class="text-center"><a href="actualizar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-warning">Actualizar</a></td>
-                    <td class="text-center"><a href="borrar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-danger">Borrar</a></td>
+                    <td class="text-center">
+                        <a href="actualizar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-warning"><img src="edit-alt-regular-24 (1).png" alt="editar">Editar</a>
+                        <a href="borrar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-danger"><img src="x-square-solid-24.png" alt="borrar">Borrar</a>
+                    </td>
                 </tr>
                 <?php
                     }
