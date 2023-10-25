@@ -60,7 +60,7 @@
                             $sel3 = $con3->query("SELECT * FROM proveedor");
                             while($fila3=$sel3->fetch_assoc()){
                             ?>
-                            <option value="<?php echo $fila3["id_proveedor"]; ?>"><?php echo $fila3["nombre"]; ?></option>
+                            <option value="<?php echo $fila3["id_proveedor"]; ?>"><?php echo $fila3["nombreP"]; ?></option>
                             <?php 
                                 }
                             ?>
