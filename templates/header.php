@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Css/estilosHeader.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 </head>
 <body id="body">
 
@@ -20,7 +29,7 @@
   <li>
     <div class="category-item">
       <img src="../img/icons/home.svg" id="iconHome">
-      <a href="#">Inicio</a>
+      <a href="../inicio/index.php">Inicio</a>
     </div>
   </li>
   <li>
@@ -32,7 +41,7 @@
   <li>
     <div class="category-item">
       <img src="../img/icons/production.svg" id="iconHome">
-      <a href="#">Producción</a>
+      <a href="../Produccion/index.php">Producción</a>
     </div>
   </li>
   <li>
@@ -92,6 +101,48 @@
     <p>Don Berriondo</p>
   </div>
 </nav>
+
+<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+$(document).ready( function(){
+$("#tabla_id").DataTable({
+  "pageLength":3,
+  lengthMenu:[
+    [3,5,7],
+    [3,5,7]
+  ],
+  "Language":{
+    "url": "https://cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+
+  }
+
+});
+
+
+});
+</script>
+
+
+<script>
+function borrar(id){
+    Swal.fire({
+    title: '¡Desea borrar el registro?',
+    showCancelButton: true,
+    confirmButtonText: 'Si, Borrar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location="index.php?txtID="+id;
+      } 
+})      
+}
+</script>
+
+<?php if(isset($_GET['mensaje'])) { ?>
+<script>
+    Swal.fire({icon:"success", title:"<?php echo $_GET['mensaje'];?>"});
+</script>
+<?php }?>
 
 </body>
 </html>
