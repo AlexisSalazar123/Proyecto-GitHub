@@ -1,3 +1,3 @@
 <?php
-    $con = new mysqli('localhost','root','','el_berriondo');
+    $con = new mysqli('localhost','root','','arepas_elBerriondo');
 ?>
