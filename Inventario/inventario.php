@@ -107,7 +107,7 @@
                     <td class="text-center"><?php  echo $fila['nombreP']?></td>
                     <td class="text-center">
                         <a href="actualizar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-warning"><img src="edit-alt-regular-24 (1).png" alt="editar">Editar</a>
-                        <a href="borrar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-danger"><img src="x-square-solid-24.png" alt="borrar">Borrar</a>
+                        <a href="borrar.php?id_inventario=<?php echo $fila['id_inventario'];?>" class="btn btn-danger"><img  class="" src="x-regular-24.png" alt="borrar">Borrar</a>
                     </td>
                 </tr>
                 <?php
