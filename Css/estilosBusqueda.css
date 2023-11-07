@@ -1,0 +1,94 @@
+body {
+  overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+#fecha1{
+    margin-top: 30px;
+    margin-left: 100px;  
+}
+
+#fecha2{
+  margin-top: 30px;
+  margin-left: 50px;  
+}
+
+#filtrar{
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 53px;
+  transform: translateX(35px);
+}
+
+#Descargar{
+  width: 120px;
+  margin-top: 25px;
+  transform: translateX(-35px);
+}
+
+#tabla_busqueda{
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 160px;
+  transform: translateX(340px);
+  width: 1095px;
+}
+
+#ConBuscador{
+  transform: translateY(120px);
+  margin-left: 340px;
+  border-radius: 20px;
+  width: 1100px;
+  height: 150px;
+  background-color: rgb(252, 252, 252);
+}
+
+#ConBuscador img{
+  transform: translateX(80px); 
+  width: 28px;
+  height: 28px;
+}
+
+#ConBuscador p{
+  color: white;
+  transform: translateX(-20px);
+  margin-top: -28px;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#Descargar button{
+  height: 45px;
+}
+
+#button1{
+  background-color: rgb(225, 43, 43);
+}
+
+#button1:hover{
+  background-color: rgb(232, 116, 116);
+}
+
+#button2{
+  background-color: rgb(21, 224, 18);
+}
+
+#button2:hover{
+  background-color: rgb(135, 245, 135);
+}
+
+thead {
+  background-color: #3366cc; /* Cambia el color de fondo a tu preferencia */
+  color: white; /* Cambia el color del texto a tu preferencia */
+}
+
+strong.total {
+  transform: translateY(148px);
+  margin-left: 333px;
+  font-weight: bold;
+}
+
+h1.total {
+  transform: translateY(310px);
+  margin-left: 561px;
+  font-weight: bold;
+}
