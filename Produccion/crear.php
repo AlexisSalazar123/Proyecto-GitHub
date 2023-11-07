@@ -6,10 +6,12 @@ $codigo_agregar = $_POST['codigo'];
 $producto_agregar = $_POST['producto'];
 $cantidad_agregar = $_POST['cantidad'];
 
+//Se inserta los datos de la nueva producción
 $ins=$con->query("INSERT INTO produccion(codigo_produccion,nombre_producto,cantidad)
                      VALUES ('$codigo_agregar','$producto_agregar','$cantidad_agregar')");
 
 if($ins){
+    //Se calcula los ingredientes utilizados
     $cantidad_arepas = $cantidad_agregar * 5;
     $cantidad_harina = ($cantidad_arepas / 5) * 0.5;
     $cantidad_mozarella = ($cantidad_arepas / 5) * 0.25;
@@ -20,6 +22,7 @@ if($ins){
     $cantidad_agua = ($cantidad_arepas / 5) * 0.35;
     $cantidad_leche = ($cantidad_arepas / 5) * 0.35;
 
+    //Se descuenta del inventario
     $ins_harina = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_harina WHERE nombre_ingrediente = 'Harina'");
     $ins_mozarrella = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_mozarella WHERE nombre_ingrediente = 'queso mozarella'");
     $ins_fresco = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_fresco WHERE nombre_ingrediente = 'queso fresco'");
@@ -29,6 +32,7 @@ if($ins){
     $ins_agua = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_agua WHERE nombre_ingrediente = 'agua'");
     $ins_leche = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_leche WHERE nombre_ingrediente = 'leche'");
 
+    //Mensaje que se mostrara en el modal exitosamente
     $mensaje="Registro agregado y el inventario se ha actualizado";
     header("location:index.php?mensaje=".$mensaje);
 }else{

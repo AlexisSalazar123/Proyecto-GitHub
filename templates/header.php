@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Css/estilosHeader.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -35,7 +37,7 @@
   <li>
     <div class="category-item">
       <img src="../img/icons/box.svg" id="iconHome">
-      <a href="#">Inventario</a>
+      <a href="../inventario/index.php">Inventario</a>
     </div>
   </li>
   <li>
@@ -47,31 +49,31 @@
   <li>
     <div class="category-item">
       <img src="../img/icons/sales.svg" id="iconHome">
-      <a href="#">Ventas</a>
+      <a href="../ventas/index.php">Ventas</a>
     </div>
   </li>
   <li>
     <div class="category-item">
-      <img src="../img/icons/arepa.png" id="iconHome">
-      <a href="#">Productos</a>
+      <img src="../img/icons/arepita2.svg" id="iconHome">
+      <a href="../productos/index.php">Productos</a>
     </div>
   </li>
   <li>
     <div class="category-item">
       <img src="../img/icons/customers.svg" id="iconHome">
-      <a href="#">Clientes</a>
+      <a href="../clientes/index.php">Clientes</a>
     </div>
   </li>
   <li>
     <div class="category-item">
       <img src="../img/icons/provider.svg" id="iconHome">
-      <a href="#">Proveedor</a>
+      <a href="../proveedor/index.php">Proveedor</a>
     </div>
   </li>
   <li>
     <div class="category-item">
       <img src="../img/icons/user.svg" id="iconHome">
-      <a href="#">Usuarios</a>
+      <a href="../usuarios/index.php">Usuarios</a>
     </div>
   </li>
 </ul>
@@ -105,42 +107,46 @@
 <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-$(document).ready( function(){
-$("#tabla_id").DataTable({
-  "pageLength":3,
-  lengthMenu:[
-    [3,5,7],
-    [3,5,7]
+$(document).ready(function () {
+    $("#tabla_id").DataTable({
+      "dom": '<"top"flBri>t<"bottom"ip>',
+        "pageLength": 7,
+        lengthMenu:[//como se va a mostrar el paginado o el numero de registros por datos
+    [3,10,25,50],
+    [3,10,25,50]
   ],
-  "Language":{
-    "url": "https://cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
-
-  }
-
-});
-
-
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+        }
+    });
 });
 </script>
 
 
 <script>
 function borrar(id){
-    Swal.fire({
-    title: '¡Desea borrar el registro?',
-    showCancelButton: true,
-    confirmButtonText: 'Si, Borrar',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location="index.php?txtID="+id;
-      } 
-})      
+  Swal.fire({
+  title: "¿Desea eliminar el registro?",
+  text: "¡No podras revertirlo!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Sí, eliminar!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location="index.php?txtID="+id;
+  }
+});      
 }
 </script>
 
 <?php if(isset($_GET['mensaje'])) { ?>
 <script>
-    Swal.fire({icon:"success", title:"<?php echo $_GET['mensaje'];?>"});
+    Swal.fire({ icon: "success", timer: 1500, title: "<?php echo $_GET['mensaje']; ?>" 
+    }).then(function(){
+      window.location.href = "index.php";
+    });
 </script>
 <?php }?>
 
