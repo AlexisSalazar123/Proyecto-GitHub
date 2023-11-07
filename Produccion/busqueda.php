@@ -125,7 +125,7 @@ $query = mysqli_query($con, $sqlProduccion);
 
 //Muestra el total de regisros
 $total = mysqli_num_rows($query);
-echo '<strong class="total">Total: ('. $total .')</strong>';
+echo '<h3 class="total">Total: ('. $total .')</h3>';
 
 //Sino se encuentra muestra el h1
 if($total < 1){

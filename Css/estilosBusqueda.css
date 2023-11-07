@@ -81,14 +81,15 @@ thead {
   color: white; /* Cambia el color del texto a tu preferencia */
 }
 
-strong.total {
-  transform: translateY(148px);
-  margin-left: 333px;
+h1.total {
+  transform: translateY(310px);
+  margin-left: 345px;
   font-weight: bold;
 }
 
-h1.total {
-  transform: translateY(310px);
-  margin-left: 561px;
+h3.total {
+  transform: translateY(150px);
+  margin-left: 345px;
   font-weight: bold;
+  font-size: 18px;
 }
