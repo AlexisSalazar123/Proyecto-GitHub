@@ -1,5 +1,109 @@
 #tabla_produccion{
     left: 300px;
-    transform: translateY(120px);
-    width: 1180px;
+    transform: translateY(100px);
+    width: 1180px;   
+}
+
+#buttonBusqueda{
+    transform: translateX(760px);
+}
+
+#tabla_id{
+    font-size: 19px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.input-icon{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-130px);
+}
+
+.mb-3 input{
+    transform: translateX(40px);
+    width: 410px;
+    height: 50px;
+}
+
+.form-select{
+    transform: translateX(40px);
+    width: 410px !important;
+    height: 50px;
+}
+
+::placeholder{
+    transform: translateX(5px);
+}
+
+.icon2{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-66px);
+}
+
+.icon3{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(1px);
+}
+
+.form-select{
+    transform: translateX(40px);
+    width: 410px;
+    height: 50px;
+}
+
+#icons1{
+    width: 25px !important;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-214px);
+}
+
+#icons2{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-108px);
+}
+
+#icons3{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-5px);
+}
+
+#icons4{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(100px);
+}
+
+#icons5{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(205px);
 }
