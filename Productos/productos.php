@@ -67,7 +67,7 @@
             <tbody>
                 <tr>
                     <td class="text-center"><?php  echo $fila['nombre']?></td>
-                    <td class="text-center"><img src="<?php  echo $fila['foto']?>" alt="imagen" class="imagen-producto"></td>
+                    <td class="text-center"><img src="Img/<?php  echo $fila['foto']?>" alt="imagen" class="imagen-producto"></td>
                     <td class="text-center"><?php  echo $fila['precio']?></td>
                     <td class="text-center">
                         <a href="actualizar.php?id_productos=<?php echo $fila['id_productos'];?>" class="btn btn-warning"><img src="edit-alt-regular-24 (1).png" alt="editar">Editar</a>
