@@ -53,7 +53,7 @@ if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
                     <th scope="col" class="table-dark">Numero ventas</th>
                     <th scope="col" class="table-dark">Codigo venta</th>
                     <th scope="col" class="table-dark">Nombre Cliente</th>
-                    <th scope="col" class="table-dark">total</th>
+                    <th scope="col" class="table-dark">cantidad</th>
                     <th scope="col" class="table-dark">fecha</th>
                     <th scope="col" class="table-dark">Editar | Eliminar | Ticket </th>
             </thead>
@@ -62,7 +62,7 @@ if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
             <?php 
             $sel = $con->query("SELECT *,
             (SELECT nombre FROM clientes
-            WHERE id_cliente=nombre_cliente)
+            WHERE id_cliente=nombre_cliente)as Ncliente
             FROM ventas");
             while ($fila = $sel->fetch_assoc()) {
             ?>
@@ -70,22 +70,35 @@ if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
                 <tr class="">
                 <td><?php echo $fila['id_ventas']?></td>
                 <td><?php echo $fila['codigo_venta']?></td>
-                <td><?php echo $fila['nombre_cliente']?></td>
-                <td><?php echo $fila['total']?></td>
+                <td><?php echo $fila['Ncliente']?></td>
+                <td><?php echo $fila['cantidad']?></td>
                 <td><?php echo $fila['fecha']?></td>
                 <td>
+                    
                     <button type="button" class="btn btn-warning editbtn" data-toggle="modal" data-target="#editar">
-                        <img src="../img/icons/pencil2.svg" alt="Imagen de actualización" width="23" height="25">
+                     <img src="../img/icons/pencil2.svg" alt="Imagen de actualización" width="23" height="25">
                     </button>
-                    | 
+                    
+                    -
+                    
                     <a class="btn btn-danger" href="javascript:borrar(<?php echo $fila['id_ventas'];?>);" role="button">
                         <img src="../img/icons/delete.svg" alt="Imagen de eliminar" width="23" height="25">
                     </a> 
-                    | 
-                    <button type="button" class="btn btn-success editbtn" data-toggle="modal" data-target="">
-                        <img src="../img/icons/pencil2.svg" alt="Imagen de actualización" width="23" height="25">
+
+                    -
+                    
+                    <button type="button" class="btn btn-success">
+                        <a style="height: 30px;" href="RECEIPT-main/ticket.php?id=<?php echo $fila['id_ventas'] ?>" >
+                            <img src="../img/icons/pencil2.svg" alt="Imagen de ticket" width="23" height="25">
+                        </a>
                     </button>
-                                     
+                    
+
+                    <script>
+                        document.getElementById("redirectButton").addEventListener("click", function() {
+                         window.location.href = "busqueda.php";
+                     });
+                    </script> 
                 </td>
                 </tr>
 
@@ -138,9 +151,9 @@ else{
             </div>
             <div class="modal-body">
                 <form action="update.php" method="POST">
-                    <input type="hidden" name="id" id="update_id">
+                    <input type="hidden" name="id" id="id">
                     <div class="mb-3">
-                    <label for="numero" class="col-form-label">Numero de Venta</label>
+                    <label for="numero" class="col-form-label">Numero Venta (id)</label>
                         <input type="number" readonly name="numero" id="numero" class="form-control" required>
                         <img class="input-icon" id="icons1" src="../img/Icons/hashtag.svg" alt=""> 
                     </div>
@@ -152,7 +165,7 @@ else{
                     <div class="mb-3">
                     <label for="numero" class="col-form-label">Clientes</label>
                         <img class="input-icon" id="icons3" src="../img/Icons/selarepa.svg" alt=""> 
-                        <select class="form-select form-select-sm" name="producto" id="producto" required>
+                        <select class="form-select form-select-sm" name="cliente" id="cliente" required>
                         <option value="" disabled selected>Seleccione un cliente</option>
                             <?php
                              $pro = $con->query("SELECT * FROM clientes");
@@ -167,7 +180,7 @@ else{
                     <div class="mb-3">
                         <label for="numero" class="col-form-label">Cantidad:</label>
                         <img class="icon2" id="icons4" src="../img/Icons/amount.svg" alt="">
-                        <input type="number" id="cantidad" name="cantidad" class="form-control" required>
+                        <input type="number" id="cantidad" name="total" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="numero" class="col-form-label">Fecha:</label>
@@ -200,7 +213,7 @@ else{
           </div>
           <div class="mb-3">
           <img class="icon2" id="icon2" src="../img/Icons/selarepa.svg" alt="">
-                        <select class="form-select form-select-sm" name="producto" id="producto" required>
+                        <select class="form-select form-select-sm" name="cliente" id="cliente" required>
                         <option value="" disabled selected>Seleccione un cliente</option>
                             <?php
                              $pro = $con->query("SELECT * FROM clientes");
@@ -212,10 +225,43 @@ else{
                             <?php } ?>
                         </select>
                     </div>
+
+            <div class="mb-3">
+               <img class="icon2" id="icon2" src="../img/Icons/selarepa.svg" alt="">
+                        <select class="form-select form-select-sm" name="producto" id="producto" required>
+                        <option value="" disabled selected>Seleccione el Producto</option>
+                            <?php
+                             $pro = $con->query("SELECT * FROM productos");
+                             while ($registro = $pro->fetch_assoc()){
+                            ?>
+                                <option value="<?php echo $registro['id_productos'] ?>">
+                                   <?php echo $registro['nombre']?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+            <input type="number" id="total" name="total" class="form-control" placeholder="Ingrese el total venta" required>
+            <img class="input-icon" id="icon1" src="../img/Icons/code.svg" alt="">
+          </div>
           <div class="mb-3">
             <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad de arepas" required>
             <img class="icon3" src="../img/Icons/amount.svg" alt="">
           </div>
+          <div class="mb-3">
+          <img class="icon2" id="icon2" src="../img/Icons/selarepa.svg" alt="">
+                        <select class="form-select form-select-sm" name="pago" id="pago" required>
+                        <option value="" disabled selected>Seleccione una forma de Pago</option>
+                            <?php
+                             $pro = $con->query("SELECT * FROM forma_pago");
+                             while ($registro = $pro->fetch_assoc()){
+                            ?>
+                                <option value="<?php echo $registro['id_pago'] ?>">
+                                   <?php echo $registro['nombre']?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <input type="submit" value="Agregar" class="btn btn-success"></input>
