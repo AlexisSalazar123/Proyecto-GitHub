@@ -17,7 +17,7 @@
     $pdf->SetTextColor(0,0,0);
     $pdf->MultiCell(0,5,iconv("UTF-8", "ISO-8859-1",strtoupper("El Berriondo")),0,'C',false);
     $pdf->SetFont('Arial','',9);
-    $pdf->MultiCell(0,5,iconv("UTF-8", "ISO-8859-1","RUC: 10463682891"),0,'C',false);
+    $pdf->MultiCell(0,5,iconv("UTF-8", "ISO-8859-1","RUT: 10463682891"),0,'C',false);
     $pdf->MultiCell(0,5,iconv("UTF-8", "ISO-8859-1","Direccion Urrao, Colombia"),0,'C',false);
     $pdf->MultiCell(0,5,iconv("UTF-8", "ISO-8859-1","Teléfono: 305-567-6789"),0,'C',false);
     $pdf->MultiCell(0,5,iconv("UTF-8", "ISO-8859-1","Email: elberriondo@gmail.com"),0,'C',false);
