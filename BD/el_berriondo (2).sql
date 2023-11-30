@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2023 a las 20:19:08
+-- Tiempo de generación: 30-11-2023 a las 21:28:16
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -87,14 +87,14 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_inventario`, `nombre_ingrediente`, `cantidad`, `unidad_medida`, `cantidad_minima`, `nombre_proveedor`, `imagen`) VALUES
-(1, 'Harina', 429.56, 1, 17.00, 1, 'harinaM.png'),
-(2, 'queso mozarella', 857.75, 1, 10.00, 3, 'queso2.png'),
-(3, 'queso fresco', 374.60, 1, 10.00, 3, 'queso.png'),
-(4, 'azucar', 484.03, 2, 10.00, 4, 'azucar.png'),
-(5, 'sal', 1584.32, 2, 222.00, 5, 'sal.png'),
-(6, 'mantequilla', 204.14, 2, 10.00, 6, 'mantequilla.png'),
-(7, 'agua', 332.82, 3, 19.00, 7, 'agua.png'),
-(8, 'leche', 191.20, 3, 10.00, 6, 'leche.png');
+(1, 'Harina', 409.56, 1, 17.00, 1, 'harinaM.png'),
+(2, 'queso mozarella', 847.75, 1, 10.00, 3, 'queso2.png'),
+(3, 'queso fresco', 368.60, 1, 10.00, 3, 'queso.png'),
+(4, 'azucar', 483.23, 2, 10.00, 4, 'azucar.png'),
+(5, 'sal', 1583.92, 2, 222.00, 5, 'sal.png'),
+(6, 'mantequilla', 202.94, 2, 10.00, 6, 'mantequilla.png'),
+(7, 'agua', 318.82, 3, 19.00, 7, 'agua.png'),
+(8, 'leche', 177.20, 3, 10.00, 6, 'leche.png');
 
 -- --------------------------------------------------------
 
@@ -153,7 +153,8 @@ INSERT INTO `produccion` (`id_produccion`, `codigo_produccion`, `nombre_producto
 (80, 663, 34, 1200, '2023-07-30 17:02:53'),
 (81, 669, 3, 1400, '2023-11-30 17:05:31'),
 (82, 667, 32, 1400, '2023-09-22 17:03:43'),
-(83, 199, 35, 2, '2023-11-30 17:31:15');
+(83, 199, 35, 2, '2023-11-30 17:31:15'),
+(84, 20, 34, 40, '2023-11-30 20:11:40');
 
 -- --------------------------------------------------------
 
@@ -174,12 +175,12 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_productos`, `nombre`, `foto`, `precio`, `fecha`) VALUES
-(1, 'Arepa la garra', 'Garra.jpeg', 10000, '2023-11-30 17:16:12'),
-(2, 'Arepa el morao', 'morado.jpeg', 11000, '2023-11-30 17:16:23'),
-(3, 'Arepa el Rolo', 'rolo2.jpg', 10500, '2023-11-30 17:16:37'),
+(1, 'Arepa La Garra', 'Garra.jpeg', 10000, '2023-11-30 20:21:19'),
+(2, 'Arepa El Morao', 'morado.jpeg', 11000, '2023-11-30 20:21:36'),
+(3, 'Arepa El Rolo', 'rolo2.jpg', 10500, '2023-11-30 20:21:52'),
 (32, 'Arepa Caramela', 'morada.jpg', 9000, '2023-11-30 17:16:56'),
 (34, 'Arepa la Yazuri', 'La yuri.png', 12000, '2023-11-30 17:17:10'),
-(35, 'Arepa la Amelia', 'Amelia.jpeg', 12000, '2023-11-30 17:23:23');
+(35, 'Arepa La Amelia', 'Amelia.jpeg', 12000, '2023-11-30 20:22:33');
 
 -- --------------------------------------------------------
 
@@ -306,7 +307,8 @@ INSERT INTO `ventas` (`id_ventas`, `codigo_venta`, `nombre_cliente`, `cantidad`,
 (14, 334, 4, 398, 34, 4776000, '2023-11-30 17:24:12', 2),
 (15, 721, 8, 245, 2, 2695000, '2023-11-30 17:24:40', 1),
 (16, 649, 2, 234, 3, 2457000, '2023-11-30 17:25:59', 2),
-(17, 90, 4, 92, 3, 966000, '2023-11-30 17:27:16', 2);
+(17, 90, 4, 92, 3, 966000, '2023-11-30 17:27:16', 2),
+(18, 20, 1, 8, 1, 80000, '2023-11-30 20:15:08', 1);
 
 --
 -- Índices para tablas volcadas
@@ -405,7 +407,7 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT de la tabla `produccion`
 --
 ALTER TABLE `produccion`
-  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -435,7 +437,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id_ventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_ventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas
