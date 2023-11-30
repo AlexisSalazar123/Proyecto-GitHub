@@ -2,6 +2,7 @@
 include('../conexion.php');
 include("../templates/header.php");
 
+
 if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
     $id = $_GET['txtID'];
     $cantidad = $_POST['cantidad'];
@@ -50,15 +51,42 @@ if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
 
 }
 ?>
+
+<title>Producción</title>
 <link rel="stylesheet" href="../Css/estilosProduccion.css">
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $("#tabla_id").DataTable({
+      "dom": '<"top"flBri>t<"bottom"ip>',
+        "pageLength": 7,
+        lengthMenu:[//como se va a mostrar el paginado o el numero de registros por datos
+    [3,10,25,50,100],
+    [3,10,25,50,100]
+  ],
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+        }
+    });
+});
+</script>
+
+<div class="alert alert-info">
+    <h4><strong>Producción</strong></h4>
+</div>
+
 <!--Div que contendra la tabla -->
 <div class="card" id="tabla_produccion">
     <div class="card-header">
     <a name="" id="" class="btn btn-primary" href="" role="button" data-bs-toggle="modal" data-bs-target="#RegistroModal" data-bs-whatever="@mdo">
     <img src="../img/icons/add.svg" alt="Logo" style="width:30px;">
-        Agregar registro
+        Agregar Producción
+    </a>
+    <a name="" id="buttonGrafica" class="btn btn-warning" href="Grafica/index.php">
+        Gráfica
+      <img src="../img/icons/graphic2.svg" alt="Logo" style="width:25px;">
     </a>
     <a name="" id="buttonBusqueda" class="btn btn-secondary" href="busqueda.php">
         Busqueda por fecha
@@ -93,7 +121,7 @@ if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
                 <td><?php echo $fila['id_produccion']?></td>
                 <td><?php echo $fila['codigo_produccion']?></td>
                 <td><?php echo $fila['producto']?></td>
-                <td><?php echo $fila['cantidad']?></td>
+                <td><?php echo $fila['cantidad']?> PAQ</td>
                 <td><?php echo $fila['fecha']?></td>
                 <td>
                     <button type="button" class="btn btn-warning editbtn" data-toggle="modal" data-target="#editar">
@@ -115,6 +143,15 @@ if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
     </div>
 
 </div>
+
+<script>
+document.getElementById("buttonGrafica").addEventListener("click", function() {
+  // Mostrar el formulario al hacer clic en el botón
+  document.getElementById("formularioGrafica").style.display = "block";
+});
+
+// Puedes agregar más lógica aquí para cerrar el formulario si es necesario
+</script>
 
 <script>
     document.getElementById("buttonBusqueda").addEventListener("click", function() {
@@ -148,7 +185,7 @@ else{
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Registro</h1>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Producción</h1>
                 <button type="button" class="btn-close btn-secondary" data-bs-dismiss="modal" onclick="closeModalAndRedirect(event)"></button>
             </div>
             <div class="modal-body">

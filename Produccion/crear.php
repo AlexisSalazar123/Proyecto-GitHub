@@ -2,6 +2,15 @@
 
 include('../conexion.php');
 
+    $codigo = $_POST['codigo'];
+
+    $codigo_existente = $con->query("SELECT id_produccion FROM produccion WHERE codigo_produccion = '$codigo' ");
+    if ($codigo_existente->num_rows > 0) {
+        // El código ya está en uso, mostrar alerta y detener el proceso
+        echo "<script>alert('El código ya está en uso. Por favor elija otro.'); window.location.href='index.php';</script>";
+        exit();
+    }
+
 $codigo_agregar = $_POST['codigo'];
 $producto_agregar = $_POST['producto'];
 $cantidad_agregar = $_POST['cantidad'];

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descargar</title>
+    <title>Descargar Reporte Excel</title>
     <style>
     .color{
         background-color: #9BB;  
@@ -21,7 +21,7 @@ $fecha = date("d-m-Y");
 /*Forzar la descarga excel */
 header("Content-Type: text/html;charset=utf-8");
 header("Content-Type: application/vnd.ms-excel charset=iso-8859-1");
-$filename = "ReporteExcel_" .$fecha. ".xls";
+$filename = "ReporteProduccionExcel_" .$fecha. ".xls";
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header("Content-Disposition: attachment; filename=" . $filename . "");
 

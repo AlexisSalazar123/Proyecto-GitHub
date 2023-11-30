@@ -8,6 +8,13 @@ if(isset($_POST['numero'])){
     $cantidad = $_POST['cantidad'];
     $fecha = $_POST['fecha'];
 
+    $codigo_existente = $con->query("SELECT id_produccion FROM produccion WHERE codigo_produccion = '$codigo' AND id_produccion <> $id");
+    if ($codigo_existente->num_rows > 0) {
+        // El código ya está en uso, mostrar alerta y detener el proceso
+        echo "<script>alert('El código ya está en uso. Por favor elija otro.'); window.location.href='index.php';</script>";
+        exit();
+    }
+
     //Consulta que selecciona la cantidad de arepas de la produccion
     $sel = $con->query("SELECT cantidad FROM produccion WHERE id_produccion=". $id);
     $cantidad_anterior = $sel->fetch_assoc();
@@ -71,7 +78,6 @@ if($up){
     header('location:index.php');
 }
 }
-
 
 ?>
 

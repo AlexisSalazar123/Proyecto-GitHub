@@ -1,0 +1,97 @@
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#cartas{
+    margin-top: 7.5%;
+    margin-left: 30%;
+}
+
+#cartas2{
+    margin-top: 2%;
+    margin-left: 30%;
+}
+
+img{
+    margin-top: 8%;
+}
+
+#cartas .card{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    text-align: center;
+}
+
+#cartas2 .card{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.card:hover{
+    background-color: aliceblue;
+}
+
+.card:hover img{
+    transform: scale(1.2);   
+} 
+
+.container a{
+    font-size: 40px;
+}
+
+.texto{
+    width: 80%;
+    text-align: center;
+}
+
+.modal-body h1{
+    font-size: 255%;
+}
+
+.modal-header{
+    background-color: rgb(215, 248, 250);
+}
+
+.modal-header h1{
+    font-size: 139%;
+    transform: translateX(190%);
+}
+
+#exampleModal{
+    margin-top: 6%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /*font-family: 'Times New Roman', Times, serif;*/
+}
+
+#exampleModal img{
+    margin-left: 75%;
+    margin-top: -23%;
+}
+
+#h1User{
+    margin-top: 5%;
+}
+
+.modal {
+    transition: transform 0.3s ease-out;
+    transform: translateY(-100%);
+}
+
+.modal.show {
+    transform: translateY(0);
+}
+
+#ModalReceta img{
+    margin-top: 3%;
+}
+
+#ModalReceta h4{
+    margin-left: 32%;
+}
+
+h3{
+    margin-left: 16%;
+    margin-top: -9%;
+}
+
+

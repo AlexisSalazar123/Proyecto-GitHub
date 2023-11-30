@@ -6,13 +6,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Busqueda Producción</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Shadows+Into+Light&family=Sometype+Mono&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Urian Viera :: WebDeveloper</title>
     <link rel="icon" type="image/x-icon" href="assets/img/logo-mywebsite-urian-viera.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
@@ -44,7 +44,7 @@
                     <button type="submit" id="button1" style="width: 220px;" style="height: 30px;" class="btn btn-light mb-2" name="reportType" value="pdf">
                     <img src="../img/icons/pdf2.svg" alt="" style="vertical-align: middle; margin-right: 5px;">
                     <p>Descargar PDF</p></button>
-                    <button type="submit" id="button2" style="width: 220px;" class="btn btn-light mb-2" name="reportType" value="excel">
+                    <button type="submit" id="button2" style="width: 220px;" class="btn btn-light mb-2" name="reportType" target="_blank" value="excel">
                             <img src="../img/icons/excel.svg" alt="" style="vertical-align: middle; margin-right: 5px;">
                             <p>Descargar Excel</p>
                         </button>
@@ -53,8 +53,6 @@
                 </form>
               </div>
        </section>
-              
-
 
 
 <script>
@@ -70,7 +68,8 @@ document.getElementById("reportForm").addEventListener("submit", function (e) {
 
     //Se le asigna al action el valor del boton
     if (reportType === "pdf") {
-        this.action = "DescargarReporte.php";
+        const url = `DescargarReporte.php?fechaIngreso=${fechaIngreso}&fechaFin=${fechaFin}`;
+        window.open(url, "_blank");
     } else if (reportType === "excel") {
         this.action = "DescargarReporteExcel.php";
     } else if (reportType === "filtrar") {
@@ -102,16 +101,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 </script>
-
-
 
 <?php
 
 if (isset($_REQUEST['fecha_ingreso'])){
 
-usleep(500000);
+    echo '<div class="spinner-border text-muted" id="spinner"></div>';
+    echo '<script>
+            setTimeout(function() {
+                var spinner = document.getElementById("spinner");
+                if (spinner) {
+                    spinner.style.display = "none";
+                }
+            }, 1000); 
+          </script>';
+}
+
+if (isset($_REQUEST['fecha_ingreso'])){
 
 $fechaInit = date("Y-m-d", strtotime($_POST['fecha_ingreso']));
 $fechaFin  = date("Y-m-d", strtotime($_POST['fechaFin']));
@@ -125,15 +132,19 @@ $query = mysqli_query($con, $sqlProduccion);
 
 //Muestra el total de regisros
 $total = mysqli_num_rows($query);
+echo '<div class="mensaje-container mostrar-total">';
 echo '<h3 class="total">Total: ('. $total .')</h3>';
 
 //Sino se encuentra muestra el h1
 if($total < 1){
     echo '<h1 class="total">¡No se encontró ningún registro!</h1>';
 }
+
+echo '</div>';
+
 ?>
 
-<table class="table table-striped table-hover table-bordered" id="tabla_busqueda">
+<table class="table table-striped table-hover table-bordered mostrar-table" id="tabla_busqueda">
     <thead id="thead">
         <tr>    
             <th scope="col">Número</th>
@@ -154,7 +165,7 @@ if($total < 1){
             <td><?php echo $dataRow['codigo_produccion']?></td>
             <td><?php echo $dataRow['producto']?></td>
             <td><?php echo $dataRow['cantidad']?></td>
-            <td><?php echo $dataRow['fecha']?></td>
+            <td><?php echo date('d-m-Y', strtotime($dataRow['fecha'])); ?></td>
         </tr>
     <?php
         $i++;
@@ -162,4 +173,17 @@ if($total < 1){
     }?>
     </tbody>
 </table>
+
+<script>
+    // Espera 2 segundos antes de mostrar la tabla
+    setTimeout(function () {
+        document.getElementById('tabla_busqueda').classList.remove('mostrar-table');
+        document.querySelector('.mensaje-container').classList.remove('mostrar-total');
+    }, 1100);
+</script>
+
+
+
+
+
 

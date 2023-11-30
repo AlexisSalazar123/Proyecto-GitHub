@@ -15,7 +15,7 @@ class MYPDF extends TCPDF{
                 $auto_page_break = $this->AutoPageBreak;
                 $this->SetAutoPageBreak(false, 0);
                 $img_file = dirname( __FILE__ ) .'/logo.jpg';
-                $this->Image($img_file, 15, 15, 75, 40, '', '', '', false, 30, '', false, false, 0);
+                $this->Image($img_file, 13, 16, 85, 37, '', '', '', false, 30, '', false, false, 0);
                 $this->SetAutoPageBreak($auto_page_break, $bMargin);
                 $this->setPageMark();
             }
@@ -34,30 +34,33 @@ $pdf->setPrintHeader(true); //Eliminar la linea superior del PDF por defecto
 $pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM); //Activa o desactiva el modo de salto de página automático
  
 //Informacion del PDF
-$pdf->SetCreator('UrianViera');
-$pdf->SetAuthor('UrianViera');
+$pdf->SetCreator('ProyectoAnálisis');
+$pdf->SetAuthor('ProyectoAnálisis');
 $pdf->SetTitle('Informe de Producción');
 
-//SQL para consultas de producción
-$fechaInit = date("Y-m-d", strtotime($_POST['fecha_ingreso']));
-$fechaFin  = date("Y-m-d", strtotime($_POST['fechaFin']));
+$fechaInit = isset($_GET['fechaIngreso']) ? $_GET['fechaIngreso'] : '';
+$fechaFin = isset($_GET['fechaFin']) ? $_GET['fechaFin'] : '';
+
+$fechaInicio = date('d-m-Y', strtotime($fechaInit));
+$fechaFinF = date('d-m-Y', strtotime($fechaFin));
 
 //Agregando la primera página
 $pdf->AddPage();
 $pdf->SetFont('helvetica','B',10); //Tipo de fuente y tamaño de letra
 
-$pdf->SetXY(100, 14);
+$pdf->SetXY(105, 14);
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('helvetica','B',16); //La B es para letras en Negritas
 $pdf->Cell(90,10,'Reporte de Producción',1,0,'C',1);
-$pdf->SetXY(100, 24);
+$pdf->SetXY(105, 24);
 $pdf->SetFont('helvetica','B',12); 
-$pdf->Cell(90,9,$fechaInit.' a '.$fechaFin,1,0,'C');
-$pdf->SetXY(100, 33);
-$pdf->Cell(90,7,'Código: 0014ASZ',1,0,'C');
-$pdf->SetXY(100, 40);
+$pdf->Cell(90,9,$fechaInicio.' a '.$fechaFinF,1,0,'C');
+$pdf->SetXY(105, 33);
+$codigoAleatorio = sprintf('Código: %04d%s%s%s', rand(0, 9999), chr(rand(65, 90)), chr(rand(65, 90)), chr(rand(65, 90)));
+$pdf->Cell(90, 7, $codigoAleatorio, 1, 0, 'C');
+$pdf->SetXY(105, 40);
 $pdf->Cell(90, 7, 'Fecha: ' . date('d-m-Y'), 1, 0, 'C');
-$pdf->SetXY(100, 47);
+$pdf->SetXY(105, 47);
 $pdf->Cell(90, 7, 'Hora: ' . date('h:i A'), 1, 0, 'C');
 
 
@@ -141,7 +144,10 @@ while ($dataRow = mysqli_fetch_array($result)) {
 }
 
 $pdf->SetXY(105, $pdf->GetY());
-$pdf->Cell(80,10,'Total '.$totalGeneral,1,0,'C',1);
+$pdf->Cell(80,10,'Total: '.$totalGeneral,1,0,'C',1);
 
 
-$pdf->Output('Reporte_PDF_'.date('d_m_y').'.pdf', 'I'); 
+$pdf->Output('Reporte_Produccion_PDF_'.date('d_m_y').'.pdf', 'I'); 
+
+// Después de generar el PDF, redirigir a busqueda.php
+

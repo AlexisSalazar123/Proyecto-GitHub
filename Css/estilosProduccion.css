@@ -1,11 +1,11 @@
 #tabla_produccion{
-    left: 300px;
+    left: 19.5%;
     transform: translateY(100px);
     width: 1180px;   
 }
 
 #buttonBusqueda{
-    transform: translateX(760px);
+    transform: translateX(320%);
 }
 
 #tabla_id{
@@ -107,3 +107,27 @@
     top: 50%;
     transform: translateY(205px);
 }
+
+.horizontal-line {
+    margin-top: -193%;
+    width: 210px; 
+    height: 1.5px !important;
+    background-color: #ebebeb; 
+    position: absolute; 
+    left: 17px;
+    border-radius: 25px;
+  }
+
+.alert-info{
+    top: 13%;
+    margin-left: 19.5%;
+    width: 77%;
+}
+
+.alert h4{
+    justify-content: center;
+    text-align: center;
+    font-size: x-large;
+}
+  
+

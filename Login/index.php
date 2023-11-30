@@ -3,11 +3,11 @@
 
     include('../conexion.php');
 
-    $mensajeError = ""; 
+    $mensajeError = ""; // Inicialmente, no hay error.
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $_POST['usuario'];
-        $sel = $con->query("SELECT contraseña FROM usuario where usuario='$usuario'");
+        $sel = $con->query("SELECT nombre, email, usuario, rol, foto, contraseña FROM usuario where usuario='$usuario'");
 
         if($sel) {
             if($sel->num_rows > 0) {
@@ -16,9 +16,18 @@
                 $contraseña_bd = $registro['contraseña'];
                 $contraseña_ingresada = $_POST['contraseña'];
 
+                //Se comprueba si las contraseñas son iguales
                 if ($contraseña_bd == $contraseña_ingresada) {
+                    $_SESSION['logueado'] = true;
+                    $_SESSION['usuarioIn'] = $registro['usuario'];
+                    $_SESSION['imagenUsuario'] = $registro['foto'];
+                    $_SESSION['rol'] = $registro['rol'];
+                    $_SESSION['nombreIn'] = $registro['nombre'];
+                    $_SESSION['emailIn'] = $registro['email'];
+                    $_SESSION['modalMostrado'] = false;
+                    //se redirige a inicio
                     header("Location: ../inicio/index.php"); 
-                } else {
+                } else {//si no se encontro muestra error
                     $mensajeError = "La contraseña o el usuario son incorrectos.";
                 }
             } else {
@@ -29,6 +38,7 @@
         }
     }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -58,17 +68,18 @@
         
     <div class="div_formulario">
         <h2>Ingresar al sistema</h2>
+        <!-- Formulario de Loguin -->
            <form action="index.php" method="post" id="formulario">
             
              
              <div class="input-wraper">
                 <input type="text" id="usuario" name="usuario" placeholder="Usuario">
-                <img class="input-icon" src="img/Icons/user.svg" alt="">
+                <img class="input-icon" src="img/Icons/user2.svg" alt="">
              </div>
 
              <div class="input-wraper">
                 <input type="password" id="password" name="contraseña" placeholder="Contraseña">
-                <img class="input-icon" src="img/Icons/padlock-svgrepo-com.svg" alt="">
+                <img class="input-icon" src="img/Icons/contra.svg" alt="">
              </div>
             <button type="submit" id="validarButton">Ingresar</button>
 

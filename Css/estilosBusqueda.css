@@ -28,14 +28,18 @@ body {
 #tabla_busqueda{
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
-  margin-top: 160px;
+  margin-top: 173px;
   transform: translateX(340px);
-  width: 1095px;
+  width: 72%;
+}
+
+.mostrar-total, .mostrar-table {
+  display: none;
 }
 
 #ConBuscador{
   transform: translateY(120px);
-  margin-left: 340px;
+  margin-left: 18%;
   border-radius: 20px;
   width: 1100px;
   height: 150px;
@@ -77,8 +81,8 @@ body {
 }
 
 thead {
-  background-color: #3366cc; /* Cambia el color de fondo a tu preferencia */
-  color: white; /* Cambia el color del texto a tu preferencia */
+  background-color: #3366cc;
+  color: white;
 }
 
 h1.total {
@@ -88,8 +92,13 @@ h1.total {
 }
 
 h3.total {
-  transform: translateY(150px);
-  margin-left: 345px;
+  transform: translateY(160px);
+  margin-left: 340px;
   font-weight: bold;
   font-size: 18px;
+}
+
+#spinner{
+  margin-top: 160px;
+  margin-left: 865px;
 }
