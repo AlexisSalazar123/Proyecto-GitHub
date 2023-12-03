@@ -33,13 +33,13 @@ if($ins){
 
     //Se descuenta del inventario
     $ins_harina = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_harina WHERE nombre_ingrediente = 'Harina'");
-    $ins_mozarrella = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_mozarella WHERE nombre_ingrediente = 'queso mozarella'");
-    $ins_fresco = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_fresco WHERE nombre_ingrediente = 'queso fresco'");
-    $ins_azucar = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_azucar WHERE nombre_ingrediente = 'azucar'");
-    $ins_sal = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_sal WHERE nombre_ingrediente = 'sal'");
-    $ins_mantequilla = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_mantequilla WHERE nombre_ingrediente = 'mantequilla'");
-    $ins_agua = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_agua WHERE nombre_ingrediente = 'agua'");
-    $ins_leche = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_leche WHERE nombre_ingrediente = 'leche'");
+    $ins_mozarrella = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_mozarella WHERE nombre_ingrediente = 'Queso mozarella'");
+    $ins_fresco = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_fresco WHERE nombre_ingrediente = 'Queso fresco'");
+    $ins_azucar = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_azucar WHERE nombre_ingrediente = 'Azucar'");
+    $ins_sal = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_sal WHERE nombre_ingrediente = 'Sal'");
+    $ins_mantequilla = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_mantequilla WHERE nombre_ingrediente = 'Mantequilla'");
+    $ins_agua = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_agua WHERE nombre_ingrediente = 'Agua'");
+    $ins_leche = $con->query("UPDATE inventario SET cantidad = cantidad - $cantidad_leche WHERE nombre_ingrediente = 'Leche'");
 
     //Mensaje que se mostrara en el modal exitosamente
     $mensaje="Registro agregado y el inventario se ha actualizado";

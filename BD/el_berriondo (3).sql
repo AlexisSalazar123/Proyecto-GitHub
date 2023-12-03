@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2023 a las 21:28:16
+-- Tiempo de generación: 03-12-2023 a las 15:26:10
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -87,14 +87,14 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_inventario`, `nombre_ingrediente`, `cantidad`, `unidad_medida`, `cantidad_minima`, `nombre_proveedor`, `imagen`) VALUES
-(1, 'Harina', 409.56, 1, 17.00, 1, 'harinaM.png'),
-(2, 'queso mozarella', 847.75, 1, 10.00, 3, 'queso2.png'),
-(3, 'queso fresco', 368.60, 1, 10.00, 3, 'queso.png'),
-(4, 'azucar', 483.23, 2, 10.00, 4, 'azucar.png'),
-(5, 'sal', 1583.92, 2, 222.00, 5, 'sal.png'),
-(6, 'mantequilla', 202.94, 2, 10.00, 6, 'mantequilla.png'),
-(7, 'agua', 318.82, 3, 19.00, 7, 'agua.png'),
-(8, 'leche', 177.20, 3, 10.00, 6, 'leche.png');
+(1, 'Harina', 38.00, 1, 50.00, 1, 'harinaM.png'),
+(2, 'Queso mozarella', 250.00, 1, 30.00, 3, 'queso2.png'),
+(3, 'Queso fresco', 170.00, 1, 30.00, 3, 'queso.png'),
+(4, 'Azucar', 100.00, 2, 25.00, 4, 'azucar.png'),
+(5, 'Sal', 60.00, 2, 25.00, 5, 'sal.png'),
+(6, 'Mantequilla', 120.00, 2, 20.00, 6, 'mantequilla.png'),
+(7, 'Agua', 224.00, 3, 35.00, 7, 'agua.png'),
+(8, 'Leche', 150.00, 3, 20.00, 6, 'leche.png');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,10 @@ INSERT INTO `produccion` (`id_produccion`, `codigo_produccion`, `nombre_producto
 (81, 669, 3, 1400, '2023-11-30 17:05:31'),
 (82, 667, 32, 1400, '2023-09-22 17:03:43'),
 (83, 199, 35, 2, '2023-11-30 17:31:15'),
-(84, 20, 34, 40, '2023-11-30 20:11:40');
+(84, 20, 34, 40, '2023-11-30 20:11:40'),
+(85, 342, 35, 300, '2023-02-16 12:45:57'),
+(86, 872, 34, 4, '2023-08-24 13:05:20'),
+(87, 967, 3, 4, '2023-06-03 13:14:26');
 
 -- --------------------------------------------------------
 
@@ -179,8 +182,8 @@ INSERT INTO `productos` (`id_productos`, `nombre`, `foto`, `precio`, `fecha`) VA
 (2, 'Arepa El Morao', 'morado.jpeg', 11000, '2023-11-30 20:21:36'),
 (3, 'Arepa El Rolo', 'rolo2.jpg', 10500, '2023-11-30 20:21:52'),
 (32, 'Arepa Caramela', 'morada.jpg', 9000, '2023-11-30 17:16:56'),
-(34, 'Arepa la Yazuri', 'La yuri.png', 12000, '2023-11-30 17:17:10'),
-(35, 'Arepa La Amelia', 'Amelia.jpeg', 12000, '2023-11-30 20:22:33');
+(34, 'Arepa La Yazuri', 'La yuri.png', 12000, '2023-12-03 12:47:52'),
+(35, 'Arepa La Melba', 'Amelia.jpeg', 12000, '2023-12-03 14:02:07');
 
 -- --------------------------------------------------------
 
@@ -228,7 +231,7 @@ CREATE TABLE `tbl_roles` (
 
 INSERT INTO `tbl_roles` (`id_roles`, `nombre`) VALUES
 (1, 'Admin'),
-(2, 'hola');
+(2, 'Usuario');
 
 -- --------------------------------------------------------
 
@@ -246,10 +249,9 @@ CREATE TABLE `tbl_unidad_medida` (
 --
 
 INSERT INTO `tbl_unidad_medida` (`id_unidad_medida`, `nombre`) VALUES
-(0, 'jjjjjjjj'),
 (1, 'Kilos'),
 (2, 'Libras'),
-(3, 'litros');
+(3, 'Litros');
 
 -- --------------------------------------------------------
 
@@ -277,7 +279,8 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `usuario`, `rol`, `contraseña`, 
 (4, 'Jaime Alejandro Zuluaga Gómez', 'Alejo', 1, '458756', 'Captura de pantalla 2023-09-22 115310.png', 'alejandrozuluaga@gmail.com'),
 (14, 'Sebastian Alexis Jiménez Duque', 'Sebas', 1, '6781259', 'sebas.jpg', 'sebastianjimenez584@gmail.com'),
 (15, 'Camila Giraldo Bonilla', 'Camila', 1, '783451', 'La yuri.png', 'camilagiraldobonilla@gmail.com'),
-(16, 'Nelson Alexis Salazar Zuluaga', 'Alexis', 1, '981457', 'yo.jpg', 'alexissalazar123g@gmail.com');
+(16, 'Nelson Alexis Salazar Zuluaga', 'Alexis', 1, '981457', 'yo.jpg', 'alexissalazar123g@gmail.com'),
+(20, 'Santiago Medina Díaz', 'Costeño', 2, '679123', 'coste.png', 'MedinaDiazSan@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -407,7 +410,7 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT de la tabla `produccion`
 --
 ALTER TABLE `produccion`
-  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -431,7 +434,7 @@ ALTER TABLE `tbl_roles`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

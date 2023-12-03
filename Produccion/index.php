@@ -24,13 +24,13 @@ if(isset($_GET['txtID'])){ //Si se paso id como parámetro get
 
      //Se devuelve la materia al inventario ya que se elimino el registro
     $ins_harina = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_harina WHERE nombre_ingrediente = 'Harina'");
-    $ins_mozarrella = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_mozarella WHERE nombre_ingrediente = 'queso mozarella'");
-    $ins_fresco = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_fresco WHERE nombre_ingrediente = 'queso fresco'");
-    $ins_azucar = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_azucar WHERE nombre_ingrediente = 'azucar'");
-    $ins_sal = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_sal WHERE nombre_ingrediente = 'sal'");
-    $ins_mantequilla = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_mantequilla WHERE nombre_ingrediente = 'mantequilla'");
-    $ins_agua = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_agua WHERE nombre_ingrediente = 'agua'");
-    $ins_leche = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_leche WHERE nombre_ingrediente = 'leche'");
+    $ins_mozarrella = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_mozarella WHERE nombre_ingrediente = 'Queso mozarella'");
+    $ins_fresco = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_fresco WHERE nombre_ingrediente = 'Queso fresco'");
+    $ins_azucar = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_azucar WHERE nombre_ingrediente = 'Azucar'");
+    $ins_sal = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_sal WHERE nombre_ingrediente = 'Sal'");
+    $ins_mantequilla = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_mantequilla WHERE nombre_ingrediente = 'Mantequilla'");
+    $ins_agua = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_agua WHERE nombre_ingrediente = 'Agua'");
+    $ins_leche = $con->query("UPDATE inventario SET cantidad = cantidad + $cantidad_leche WHERE nombre_ingrediente = 'Leche'");
 
     //Se elimina el registro de la producción
     $sel = $con->query("DELETE FROM produccion WHERE id_produccion='$id'");
