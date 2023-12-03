@@ -121,7 +121,7 @@ $(document).ready(function () {
                 <td><?php echo $fila['id_produccion']?></td>
                 <td><?php echo $fila['codigo_produccion']?></td>
                 <td><?php echo $fila['producto']?></td>
-                <td><?php echo $fila['cantidad']?> PAQ</td>
+                <td><?php echo $fila['cantidad']?></td>
                 <td><?php echo $fila['fecha']?></td>
                 <td>
                     <button type="button" class="btn btn-warning editbtn" data-toggle="modal" data-target="#editar">

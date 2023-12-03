@@ -97,7 +97,7 @@ $(document).ready(function () {
                 <td><?php echo $fila['codigo_venta']?></td>
                 <td><?php echo $fila['Ncliente']?></td>
                 <td><?php echo $fila['Nproducto']?></td>
-                <td><?php echo $fila['cantidad']?> PAQ</td>
+                <td><?php echo $fila['cantidad']?></td>
                 <td><?php echo $fila['fecha']?></td>
                 <td>
                     
